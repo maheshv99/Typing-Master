@@ -4,7 +4,7 @@ let display_time_left = document.querySelector('.time-left');
 let display_mistakes = document.querySelector('.mistakes');
 let display_wpm = document.querySelector('.wpm');
 let display_cpm = document.querySelector('.cpm');
-let display_ctry_again_btnm = document.querySelector('button');
+let display_try_again_btn = document.querySelector('button');
 
 
 let timer;
@@ -80,6 +80,21 @@ function initTimer() {
         clearInterval(timer);
     }
 }
+
+display_try_again_btn.addEventListener('click',()=>{
+    loadpara();
+     maxTime = 60;
+     timeLeft = maxTime;
+     charIndex = 0;
+     mistakes = 0;
+     isTyping = false;
+     clearInterval(timer);
+     display_time_left.innerHTML=timeLeft+'s';
+     display_cpm.innerHTML=0;
+     display_wpm.innerHTML=0;
+     display_mistakes.innerHTML=0;
+    
+})
 
 
 input_text.addEventListener('input', initTyping)
